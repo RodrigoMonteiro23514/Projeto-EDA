@@ -1,10 +1,11 @@
-#include "operacoes.h"
+#include "operations.h"
+#include <locale.h>
 /*-Variáveis 
 Declaração das variáveis globais utilizadas
 ListaMaquinas -> Novo apontador para nova lista de Operações
 OperacaoInput; MaquinaInput; TempoInput -> Inputs do utilizador
 */
-ListaMaquinas *ListaMaquinas = NULL; // Declaração nova lista
+ListaMaquinas *listaMaquinas = NULL; // Declaração nova lista
 int OperacaoInput;
 int MaquinaInput;
 int TempoInput;
@@ -22,27 +23,27 @@ ListaMaquinas *InsertAtBegin(int Operacao, int Maquina, int Tempo, ListaMaquinas
         new -> Operacao = Operacao;
         new -> Maquina = Maquina;
         new -> Tempo = Tempo;
-        new -> proximo = ListaMaquinas;
+        new -> proximo = listaMaquinas;
 
         return(new);
     }   else {
-        return(ListaMaquinas);
+        return(listaMaquinas);
         }
     
 }
-void printLista(ListaMaquinas *ListaMaquinas) {
+void PrintLista(ListaMaquinas *listaMaquinas) {
     char opcao;
     int posicao = 1;
     system("clear");
 
-    if (ListaMaquinas != NULL) {
+    if (listaMaquinas != NULL) {
         printf("Maquinas");
-        while(ListaMaquinas != NULL) {
+        while(listaMaquinas != NULL) {
             printf("%d\n", posicao);
-            printf("Numero da Operacao: %d\n", ListaMaquinas->Operacao);
-            printf("Numero da Maquina: %d\n", ListaMaquinas->Maquina);
-            printf("Duracao: %d\n", ListaMaquinas-> Tempo);
-            ListaMaquinas = ListaMaquinas->proximo;
+            printf("Numero da Operacao: %d\n", listaMaquinas->Operacao);
+            printf("Numero da Maquina: %d\n", listaMaquinas->Maquina);
+            printf("Duracao: %d\n", listaMaquinas-> Tempo);
+            listaMaquinas = listaMaquinas->proximo;
             posicao++;
         }
     }
@@ -50,7 +51,7 @@ void printLista(ListaMaquinas *ListaMaquinas) {
     printf("-----------------------------------------------------------------------------\n");
     scanf("%c", &opcao);
     do{
-        printf("Clique em 'r' para voltar: ")
+        printf("Clique em 'r' para voltar: ");
         scanf("%c", &opcao);
         printf("opcao: %c\n", &opcao);
     }   while ((opcao != 'r') && (opcao != 'R'));
@@ -61,8 +62,8 @@ void printLista(ListaMaquinas *ListaMaquinas) {
 verificarValoresInput-> recebe valores e faz a verificação
 */
 
-bool verificarValoresInput(int input) {
-    if (input > 0)
+bool verificarValoresInput(int Input) {
+    if (Input > 0)
     {
         return TRUE;
     } else {
@@ -72,13 +73,13 @@ bool verificarValoresInput(int input) {
 
 /* Inputs
 Menu para visualizar os processos
-printMenu -> print das diferentes opções; novasOperacoesInputs -> recessão dos inputs do utilizador de uma nova operação
+printMenu -> print das diferentes opcoes; novasOperacoesInputs -> recessao dos inputs do utilizador de uma nova operacao
 */
 void printMenu(){
     printf("                                         MENU                                        \n");
-    printf("1 - Inserir operação nova\n");
-    printf("2 - Remover operação\n");
-    printf("3 - Mudar operação\n");
+    printf("1 - Inserir operacao nova\n");
+    printf("2 - Remover operacao\n");
+    printf("3 - Mudar operacao\n");
     printf("4 - Quantidade mínima e listagem\n");
     printf("5 - Quantidade máxima e listagem\n");
     printf("6 - Quantidade média\n");
@@ -112,9 +113,9 @@ void novasOperacoesInputs() {
             printf("Invalido, por favor insira um valor > 0\n");
         }   while (verificarValoresInput(TempoInput) == FALSE);
 
-        ListaMaquinas = InsertAtBegin(OperacaoInput, MaquinaInput, TempoInput, ListaMaquinas);
+        listaMaquinas = InsertAtBegin(OperacaoInput, MaquinaInput, TempoInput, listaMaquinas);
 
-        if (ListaMaquinas != NULL) {
+        if (listaMaquinas != NULL) {
             printf("Uma maquina nova foi inserida com sucesso!!\n");
         }   else {
             printf("Erro!!");   
@@ -132,9 +133,9 @@ void novasOperacoesInputs() {
 
 // Remover a partir da posicao
 
-ListaMaquinas *removeByposition(int position, ListaMaquinas *ListaMaquinas); {
+ListaMaquinas *removeByposition(int position, ListaMaquinas *listaMaquinas) {
 
-    ListaMaquinas *p = ListaMaquinas;
+    ListaMaquinas *p = listaMaquinas;
     ListaMaquinas *q = NULL;
 
     for (int i = 0; i < position - 1; i++)

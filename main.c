@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "operacoes.h"
+#include "operations.h"
 
 int main()  {
 
@@ -22,17 +22,17 @@ int main()  {
         case 3:
             // Menu Alterar Operacao
             break;
-        case 4;
+        case 4:
             // Menu Quantidade Minima e Listagem
             break;
-        case 5;
+        case 5:
             // Menu Quantidade Maxima e Listagem
             break;
-        case 6;
+        case 6:
             // Menu Quantdade media
             break;
-        case 7;
-            printLista(ListaMaquinas);
+        case 7:
+            PrintLista(ListaMaquinas);
             break;
         default:
             break;

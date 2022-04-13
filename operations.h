@@ -14,15 +14,15 @@ typedef struct maquina {
     struct maquina *proximo;
 }   ListaMaquinas;
 
-extern ListaMaquinas *ListaMaquinas;
+extern ListaMaquinas *listaMaquinas;
 extern int OperacaoInput;
 extern int MaquinaInput;
 extern int TempoInput;
 
 //Funções
-ListaMaquinas *InsertAtBegin(int Operacao, int Maquina, int Tempo, ListaMaquinas *ListaMaquinas);
+ListaMaquinas *InsertAtBegin(int Operacao, int Maquina, int Tempo, ListaMaquinas *listaMaquinas);
 void printMenu();
-void printLista(ListaMaquinas *ListaMaquinas);
+void PrintLista (ListaMaquinas *listaMaquinas);
 bool verificarValoresInput(int Input);
 void novasOperacoesInputs();
 int retornarNumero(int numero);
