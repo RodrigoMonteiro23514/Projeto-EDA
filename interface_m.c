@@ -99,12 +99,12 @@ Job* novaoperacaomenu(Job* listagemj)
 
     system("cls");
 
-    printf("Qual é o código da máquina que deseja inserir?\n\t"); // /t -> afastamento da margem
+    printf("Qual o codigo da operacao que deseja inserir(numeros)?\n\t"); // /t -> afastamento da margem
     scanf(" %d", &IdOperacao);
 
     if (operacaoexiste(listagemj->Operacoes, IdOperacao) == true)
     {
-        printf("\n Escolha Inválida\n\n");
+        printf("\n Escolha Invalida\n\n");
         printf("\nOperacao ja existe\n\n");
         printf("Aperte alguma tecla...");
         getche();
@@ -157,9 +157,9 @@ Maquina* novamaquinamenu(Maquina* listagemm)
 
             int IdMaquina, untempo;
 
-            printf("Qual é o código da máquina que deseja inserir? ");
+            printf("Qual o codigo da maquina que deseja inserir? ");
             scanf(" %d", &IdMaquina);
-            printf("Qual é o tempo da máquina que deseja inserir? ");
+            printf("Qual o tempo da maquina que deseja inserir? ");
             scanf(" %d", &untempo);
 
             Maquina* auxMaquina = novamaquina(IdMaquina, untempo);
@@ -188,13 +188,13 @@ Job* eliminaroperacaomenu(Job* listagemj)
 
     menumostrarop(listagemj->Operacoes);
 
-    printf("Qual é o código da máquina que deseja remover?\n\t");
+    printf("Qual o codigo da maquina que deseja remover?\n\t");
     scanf(" %d", &IdOperacao);
 
     if (operacaoexiste(listagemj->Operacoes, IdOperacao) == false)
     {
-        printf("Escolha Inválida\n\n");
-        printf("Operacao não existe\n\n");
+        printf("Escolha Invalida\n\n");
+        printf("Operacao nao existe\n\n");
         printf("Aperte alguma tecla...");
         getche();
         system("cls");
@@ -227,7 +227,7 @@ Job* eliminaroperacaomenu(Job* listagemj)
     }
 
     system("cls");
-     printf("operação eliminada com sucesso\n\n");
+     printf("operacao eliminada com sucesso\n\n");
         printf("Aperte alguma tecla...");
     getche();
     system("cls");
@@ -246,13 +246,13 @@ Job* eliminaroperacaomenu(Job* listagemj)
 
     menumostrarop(listagemj->Operacoes);
 
-    printf("Qual é o código da operação que deseja alterar?\n\t");
+    printf("Qual o codigo da operacao que deseja alterar?\n\t");
     scanf(" %d", &IdOperacao);
 
     if (operacaoexiste(listagemj->Operacoes, IdOperacao) == false)
     {
-         printf("Escolha Inválida\n\n");
-        printf("A operação não existe\n\n");
+         printf("Escolha Invalida\n\n");
+        printf("A operacao nao existe\n\n");
         printf("Aperte alguma tecla...");
         getche();
         system("cls");
@@ -287,7 +287,7 @@ Job* eliminaroperacaomenu(Job* listagemj)
         printf("\t  1. Inserir maquina \n"
                "\t  2. Eliminar maquina \n"
                "\t  3. Modificar o tempo de uma maquina \n"
-               "\n\\ 0. Voltar para trás\n");
+               "\n\\ 0. Voltar para tras\n");
 
         Escolha = GetInt(4, 0);
         switch(Escolha)
@@ -297,7 +297,7 @@ Job* eliminaroperacaomenu(Job* listagemj)
 
             int Id, untempo;
 
-            printf("Digite o código da maquina:\n\t> ");
+            printf("Digite o codigo da maquina:\n\t> ");
             scanf(" %d", &Id);
             printf("Digite o tempo da maquina:\n\t> ");
             scanf(" %d", &untempo);
@@ -311,14 +311,14 @@ Job* eliminaroperacaomenu(Job* listagemj)
 
             int Id2;
 
-            printf("Digite o código da maquina:\n\t> ");
+            printf("Digite o codigo da maquina:\n\t> ");
             scanf(" %d", &Id2);
 
             Maquina* auxMaquina = pesquisarmaquina(OperacaoEscolhida->Maquinas, Id2);
 
             if (auxMaquina == NULL)
             {
-                    printf("Escolha Inválida\n\n");
+                    printf("Escolha Invalida\n\n");
                 printf("A maquina não existe\n\n");
                 printf("Aperte alguma tecla...");
                 getche();
@@ -334,15 +334,15 @@ Job* eliminaroperacaomenu(Job* listagemj)
 
             int Id3, NovoTempo;
 
-            printf("Digite o código da maquina:\n\t> ");
+            printf("Digite o codigo da maquina:\n\t> ");
             scanf(" %d", &Id3);
 
             Maquina* auxMaquina2 = pesquisarmaquina(OperacaoEscolhida->Maquinas, Id3);
 
             if (auxMaquina2 == NULL)
             {
-                printf("Escolha Inválida\n\n");
-                printf("A maquina não existe\n\n");
+                printf("Escolha Invalida\n\n");
+                printf("A maquina nao existe\n\n");
                 printf("Aperte alguma tecla...");
                 getche();
                 system("cls");
@@ -364,7 +364,7 @@ Job* eliminaroperacaomenu(Job* listagemj)
             return listagemo;
 
         default:
-            printf("\n Escolha Inválida\n\n");
+            printf("\n Escolha Invalida\n\n");
             return listagemo;
         }
     } while (Escolha != 0);

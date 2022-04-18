@@ -7,6 +7,14 @@
 #include <wchar.h>  // caracteres especiais
 #include <windows.h>
 
+/**
+ * @brief Get the Int object
+ * 
+ * @param Max 
+ * @param Min 
+ * @return int 
+ */
+
 int GetInt(int Max, int Min)
 {
     int Numero = -1;
@@ -16,7 +24,7 @@ int GetInt(int Max, int Min)
 
     while (Numero > Max || Numero < Min)
     {
-        printf("\n Escolha Inválida\n\n");
+        printf("\n Escolha Invalida\n\n");
         printf("\n> ");
         scanf(" %d", &Numero);
     }
@@ -309,7 +317,7 @@ void menumostrarop(Operacao* listagemo)
     Operacao* aux = listagemo;
     while (aux != NULL)
     {
-        printf("Código: %d", aux->Id);
+        printf("Codigo: %d", aux->Id);
         aux = aux->proximo;
     }
     printf("\n");
